@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "market-mcp": {
+      "command": "node",
+      "args": ["C:\\Users\\hatem\\mariposa\\market-mcp\\dist\\index.js"],
+      "env": {}
+    }
+  }
+}

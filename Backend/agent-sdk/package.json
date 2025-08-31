@@ -1,0 +1,46 @@
+{
+  "name": "@mariposa-plus/agent-sdk",
+  "version": "1.0.2",
+  "description": "SEI Network Agent SDK for autonomous trading operations",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "ts-node src/index.ts",
+    "example": "ts-node examples/basic-usage.ts",
+    "clean": "rmdir /s /q dist 2>nul || echo Clean completed",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "sei",
+    "blockchain",
+    "agent",
+    "trading",
+    "smart-contracts",
+    "defi"
+  ],
+  "author": "Mariposa Plus Team",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "bignumber.js": "^9.1.2",
+    "ethers": "^5.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.9.2"
+  },
+  "peerDependencies": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mariposa-plus/agent-sdk"
+  },
+  "bugs": {
+    "url": "https://github.com/mariposa-plus/agent-sdk/issues"
+  },
+  "homepage": "https://github.com/mariposa-plus/agent-sdk#readme"
+}

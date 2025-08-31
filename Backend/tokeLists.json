@@ -1,0 +1,330 @@
+[
+    {
+        "id": "0x4b75ad7855b2b3fe5b0482c2aa796efe808fd44e",
+        "name": "MockUSDC",
+        "symbol": "USDC",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "6",
+        "verified": false
+    },
+    {
+        "id": "0xa3a16188af9cb525c14a2d392232794a63462cd1",
+        "name": "SaleToken",
+        "symbol": "SALE",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "18",
+        "verified": false
+    },
+    {
+        "id": "0x160345fc359604fc6e70e3c5facbde5f7a9342d8",
+        "name": "Wrapped ETH",
+        "symbol": "WETH",
+        "url": "https://sailor.finance/images/coins/weth.png",
+        "decimals": "18",
+        "verified": true
+    },
+    {
+        "id": "0xe30fedd158a2e3b13e9badaeabafc5516e95e8c7",
+        "name": "Wrapped SEI",
+        "symbol": "WSEI",
+        "url": "https://dzyb4dm7r8k8w.cloudfront.net/prod/logos/0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7/logo.png",
+        "decimals": "18",
+        "verified": true
+    },
+    {
+        "id": "0x805679729df385815c57c24b20f4161bd34b655f",
+        "name": "Fishwar",
+        "symbol": "FISHW",
+        "url": "https://storage.googleapis.com/app-sailor/fishwar.png",
+        "decimals": "18",
+        "verified": true
+    },
+    {
+        "id": "0x9151434b16b9763660705744891fa906f660ecc5",
+        "name": "USDT",
+        "symbol": "USDT",
+        "url": "https://raw.githubusercontent.com/Seitrace/sei-assetlist/main/images/usdt0.png",
+        "decimals": "6",
+        "verified": true
+    },
+    {
+        "id": "0xe15fc38f6d8c56af07bbcbe3baf5708a2bf42392",
+        "name": "USDC",
+        "symbol": "USDC",
+        "url": "https://dzyb4dm7r8k8w.cloudfront.net/prod/logos/0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1/logo.png",
+        "decimals": "6",
+        "verified": true
+    },
+    {
+        "id": "0x3894085ef7ff0f0aedf52e2a2704928d1ec074f1",
+        "name": "USDC.n",
+        "symbol": "USDC.n",
+        "url": "https://dzyb4dm7r8k8w.cloudfront.net/prod/logos/0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1/logo.png",
+        "decimals": "6",
+        "verified": true
+    },
+    {
+        "id": "0x5dcf92346d095d88a4543feb25be72a7fab33ed2",
+        "name": "WAVE",
+        "symbol": "WAVE",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "18",
+        "verified": false
+    },
+    {
+        "id": "0x5fb0ef85a18f1b41e39268faef6c5f45d5fb3048",
+        "name": "SaleToken",
+        "symbol": "SALE",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "18",
+        "verified": false
+    },
+    {
+        "id": "0xc5603188fd7cbb9ef5fb2c766b4faace7bada0c8",
+        "name": "MockUSDC",
+        "symbol": "USDC",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "6",
+        "verified": false
+    },
+    {
+        "id": "0x5cf6826140c1c56ff49c808a1a75407cd1df9423",
+        "name": "iSEI",
+        "symbol": "ISEI",
+        "url": "https://dzyb4dm7r8k8w.cloudfront.net/prod/logos/0x5Cf6826140C1C56Ff49C808A1A75407Cd1DF9423/logo.png",
+        "decimals": "6",
+        "verified": true
+    },
+    {
+        "id": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+        "name": "Wrapped BTC",
+        "symbol": "WBTC",
+        "url": "https://sailor.finance/images/coins/wbtc.png",
+        "decimals": "8",
+        "verified": true
+    },
+    {
+        "id": "0x78e26e8b953c7c78a58d69d8b9a91745c2bbb258",
+        "name": "uBTC",
+        "symbol": "UBTC",
+        "url": "https://www.geckoterminal.com/_next/image?url=https%3A%2F%2Fassets.geckoterminal.com%2Fjhsuvluz0eq3jq39k0aw8kth7pmm&w=64&q=75",
+        "decimals": "18",
+        "verified": true
+    },
+    {
+        "id": "0x481fe356df88169f5f38203dd7f3c67b7559fda5",
+        "name": "Raiin",
+        "symbol": "RAIIN",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "18",
+        "verified": false
+    },
+    {
+        "id": "0x12e297c8d765ea20edae2788236aaaee590d8df4",
+        "name": "SaleToken",
+        "symbol": "SALE",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "18",
+        "verified": false
+    },
+    {
+        "id": "0x541fd749419ca806a8bc7da8ac23d346f2df8b77",
+        "name": "Solv BTC",
+        "symbol": "SOLVBTC",
+        "url": "https://storage.googleapis.com/app-sailor/SolvBTC.png",
+        "decimals": "18",
+        "verified": true
+    },
+    {
+        "id": "0x599336f4b9b4c30636dcdd3f19c374d79bc4df2d",
+        "name": "Dogso",
+        "symbol": "DOGSO",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "18",
+        "verified": false
+    },
+    {
+        "id": "0x64136d06a24798d5beb8d831df634add6a1fba48",
+        "name": "MockUSDC",
+        "symbol": "USDC",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "6",
+        "verified": false
+    },
+    {
+        "id": "0xa15f4c169b572a48ebf9dda1e305ba6e7dab5557",
+        "name": "SaleToken",
+        "symbol": "SALE",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "18",
+        "verified": false
+    },
+    {
+        "id": "0x3aade831c3a01489060e5da6df9036b795783b60",
+        "name": "SEICAT",
+        "symbol": "SEICAT",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "18",
+        "verified": false
+    },
+    {
+        "id": "0x6af376be95bfc30bb3e238c5c97ba9edea29ab88",
+        "name": "Sei Inu",
+        "symbol": "SEINU",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "18",
+        "verified": false
+    },
+    {
+        "id": "0xc257361320f4514d91c05f461006ce6a0300e2d2",
+        "name": "Splashing SEI",
+        "symbol": "SPSEI",
+        "url": "https://raw.githubusercontent.com/Seitrace/sei-assetlist/main/images/spSEI.png",
+        "decimals": "18",
+        "verified": true
+    },
+    {
+        "id": "0x290fd8261af9dc3f084725f799dc12f86ad5240a",
+        "name": "SEIKING",
+        "symbol": "SEIKING",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "18",
+        "verified": false
+    },
+    {
+        "id": "0xb75d0b03c06a926e488e2659df1a861f860bd3d1",
+        "name": "kavaUSDT",
+        "symbol": "kavaUSDT",
+        "url": "https://storage.googleapis.com/app-sailor/kavaUSDT.jpg",
+        "decimals": "6",
+        "verified": true
+    },
+    {
+        "id": "0xdb9faf68f47f8ec3fda7d771b4ca70bcb1b9f62d",
+        "name": "SAGE",
+        "symbol": "SAGE",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "18",
+        "verified": false
+    },
+    {
+        "id": "0xcc0966d8418d412c599a6421b760a847eb169a8c",
+        "name": "XSOLVBTC",
+        "symbol": "XSOLVBTC",
+        "url": "https://sailor.finance/xSolvBTC.png",
+        "decimals": "18",
+        "verified": true
+    },
+    {
+        "id": "0x1a0962c502c4890092d329ae10363a8ad54fabed",
+        "name": "MockUSDC",
+        "symbol": "USDC",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "6",
+        "verified": false
+    },
+    {
+        "id": "0xc30cdbf2512ee4bd2f8708a07606c9a69bcc1dc1",
+        "name": "SEIDOG",
+        "symbol": "SEIDOG",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "18",
+        "verified": false
+    },
+    {
+        "id": "0x0814f0476b6686630df19b7c86c3ec41ce8676c0",
+        "name": "MAD",
+        "symbol": "MAD",
+        "url": "https://storage.googleapis.com/app-sailor/mad.jpg",
+        "decimals": "18",
+        "verified": true
+    },
+    {
+        "id": "0x4943d3bbe7d242675cb3382c21514a46f23b90aa",
+        "name": "MockUSDC",
+        "symbol": "USDC",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "6",
+        "verified": false
+    },
+    {
+        "id": "0xcbab11cf275011ce85d9b93c236a4844eca13cdd",
+        "name": "MOONSEI",
+        "symbol": "MOONSEI",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "18",
+        "verified": false
+    },
+    {
+        "id": "0xff12470a969dd362eb6595ffb44c82c959fe9acc",
+        "name": "USDa",
+        "symbol": "USDA",
+        "url": "https://729569225-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlcdCcIXgWo7dKoZEUxKp%2Fuploads%2FC3rBj7o0RhyZ7mSRppBC%2FUSDa.png?alt=media&token=a4735826-4925-4f78-9842-f56b6e6cd982",
+        "decimals": "18",
+        "verified": true
+    },
+    {
+        "id": "0x059a6b0ba116c63191182a0956cf697d0d2213ec",
+        "name": "syUSD",
+        "symbol": "SYUSD",
+        "url": "https://assets.coingecko.com/coins/images/50179/standard/7.png?1726164913",
+        "decimals": "18",
+        "verified": true
+    },
+    {
+        "id": "0x916aa00f747af38d2ec040792447a26e173c2598",
+        "name": "SEI House",
+        "symbol": "HOUSE",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "18",
+        "verified": false
+    },
+    {
+        "id": "0x6ab5d5e96ac59f66bab57450275cc16961219796",
+        "name": "sUSDa",
+        "symbol": "SUSDA",
+        "url": "https://729569225-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlcdCcIXgWo7dKoZEUxKp%2Fuploads%2Fvl6qQIG4mONwxo1QO7WR%2FsUSDa.png?alt=media&token=57cd569a-8dde-4f77-bb97-3445331662e2",
+        "decimals": "18",
+        "verified": true
+    },
+    {
+        "id": "0x2138d0039b219e55345ee46be0983d3530d12de7",
+        "name": "Bonkai",
+        "symbol": "BONKAI",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "18",
+        "verified": false
+    },
+    {
+        "id": "0x8e04b5d8c3ed7c5454ab07b63888ceed624d498d",
+        "name": "Bossy",
+        "symbol": "BOSSY",
+        "url": "https://seitrace.com/icons/token-placeholder.svg",
+        "decimals": "18",
+        "verified": false
+    },
+    {
+        "id": "0x0000000000000000000000000000000000000000",
+        "name": "SEI",
+        "symbol": "SEI",
+        "url": "https://dzyb4dm7r8k8w.cloudfront.net/prod/logos/0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7/logo.png",
+        "decimals": 18,
+        "verified": true
+    },
+    {
+        "id": "0x64445f0aecC51E94aD52d8AC56b7190e764E561a",
+        "name": "Frax Share",
+        "symbol": "FXS",
+        "url": "https://dzyb4dm7r8k8w.cloudfront.net/prod/logos/0x64445f0aecC51E94aD52d8AC56b7190e764E561a/logo.png",
+        "decimals": 18,
+        "verified": true
+    },
+    {
+        "id": "0x37a4dD9CED2b19Cfe8FAC251cd727b5787E45269",
+        "name": "fastUSD",
+        "symbol": "FASTUSD",
+        "url": "https://dzyb4dm7r8k8w.cloudfront.net/prod/logos/0x37a4dD9CED2b19Cfe8FAC251cd727b5787E45269/logo.png",
+        "decimals": 18,
+        "verified": true
+    }
+]

@@ -1,0 +1,33 @@
+{
+  "contacts": {
+        "samir": {
+      "name": "Samir",
+      "address": "0xc86a17ffbfc3d463a407b45d35d0cf7b525b6be7",
+      "type": "friend",
+      "category": "personal"
+    },
+    "alice": {
+      "name": "Alice",
+      "address": "0x8E7F5A2C4B6D9E1F3A8C5B2E7D4A9C6F1B8E5D2A",
+      "type": "friend", 
+      "category": "personal"
+    },
+    "bob": {
+      "name": "Bob",
+      "address": "0xA1B2C3D4E5F6789012345678901234567890ABCD",
+      "type": "colleague",
+      "category": "work"
+    },
+    "treasury": {
+      "name": "Treasury Wallet", 
+      "address": "0x1234567890ABCDEF1234567890ABCDEF12345678",
+      "type": "business",
+      "category": "business"
+    }
+  },
+  "metadata": {
+    "lastUpdated": "2024-01-20T00:00:00.000Z",
+    "version": "1.0.0",
+    "totalContacts": 4
+  }
+}
