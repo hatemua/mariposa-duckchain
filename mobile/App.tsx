@@ -25,11 +25,125 @@ import InsufficientBalanceModal from './InsufficientBalanceModal';
 import TransferSuccessModal from './TransferSuccessModal';
 import StrategyMessageComponent from './StrategyMessageComponent';
 import StrategyLoadingComponent from './StrategyLoadingComponent';
+import ArgumentRequestModal from './ArgumentRequestModal';
 
 const { width, height } = Dimensions.get('window');
 
 // Import centralized API configuration
 import API_CONFIG from './config/ApiConfig';
+
+const DUCKCHAIN_ASSETS = [
+  {
+    id: '1',
+    name: 'Toncoin',
+    symbol: 'TON',
+    balance: '1,247.58',
+    value: '$6,842.31',
+    change: '+12.45%',
+    changePositive: true,
+    color: '#0088CC',
+    gradient: ['#0088CC', '#00A8E8'],
+    icon: '💎',
+  },
+  {
+    id: '2',
+    name: 'Wrapped TON',
+    symbol: 'WTON',
+    balance: '892.34',
+    value: '$4,892.14',
+    change: '+8.73%',
+    changePositive: true,
+    color: '#00B4D8',
+    gradient: ['#00B4D8', '#0077B6'],
+    icon: '🔄',
+  },
+  {
+    id: '3',
+    name: 'DuckCoin',
+    symbol: 'DUCK',
+    balance: '15,847.92',
+    value: '$3,127.86',
+    change: '+24.67%',
+    changePositive: true,
+    color: '#FFD60A',
+    gradient: ['#FFD60A', '#FFC300'],
+    icon: '🦆',
+  },
+  {
+    id: '4',
+    name: 'Tether USD',
+    symbol: 'USDT',
+    balance: '2,847.32',
+    value: '$2,847.32',
+    change: '+0.01%',
+    changePositive: true,
+    color: '#26A17B',
+    gradient: ['#26A17B', '#50C878'],
+    icon: '💵',
+  },
+];
+
+const DUCKCHAIN_TRANSACTIONS = [
+  {
+    id: 1,
+    title: 'DUCK Mint Reward',
+    date: '31 Aug 2024 • 11:45 am',
+    amount: '+2,500 DUCK',
+    icon: '🎁',
+    color: '#FFD60A',
+    type: 'mint',
+  },
+  {
+    id: 2,
+    title: 'TON Transfer to @alice',
+    date: '31 Aug 2024 • 9:30 am',
+    amount: '-125.5 TON',
+    icon: '📤',
+    color: '#0088CC',
+    type: 'transfer',
+  },
+  {
+    id: 3,
+    title: 'DeFi Pool Payment',
+    date: '30 Aug 2024 • 6:15 pm',
+    amount: '-50.0 USDT',
+    icon: '💰',
+    color: '#26A17B',
+    type: 'pay',
+  },
+  {
+    id: 4,
+    title: 'WTON Swap',
+    date: '30 Aug 2024 • 2:20 pm',
+    amount: '+320.8 WTON',
+    icon: '🔄',
+    color: '#00B4D8',
+    type: 'swap',
+  },
+];
+
+const DUCKCHAIN_POCKETS = [
+  {
+    id: 1,
+    name: 'DeFi Staking',
+    icon: '🚀',
+    target: 5000,
+    current: 3420,
+    progress: 68,
+    asset: 'TON',
+    color: '#0088CC',
+  },
+  {
+    id: 2,
+    name: 'DUCK Farm',
+    icon: '🦆',
+    target: 50000,
+    current: 38500,
+    progress: 77,
+    asset: 'DUCK',
+    color: '#FFD60A',
+  },
+];
 
 const CRYPTO_ASSETS = [
   {
@@ -377,15 +491,34 @@ function HeaderSection({ onLogout }: { onLogout: () => void }) {
 }
 
 function WalletBalanceCard() {
+  const totalValue = DUCKCHAIN_ASSETS.reduce((sum, asset) => {
+    return sum + parseFloat(asset.value.replace('$', '').replace(',', ''));
+  }, 0);
+
   return (
     <View style={styles.balanceCard}>
       <View style={styles.balanceHeader}>
-        <Text style={styles.balanceLabel}>Balance</Text>
+        <Text style={styles.balanceLabel}>DuckChain Portfolio</Text>
         <TouchableOpacity style={styles.eyeButton}>
           <Text style={styles.eyeIcon}>👁</Text>
         </TouchableOpacity>
       </View>
-      <Text style={styles.balanceAmount}>$68,960.21</Text>
+      <Text style={styles.balanceAmount}>${totalValue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</Text>
+      
+      {/* Quick Assets Overview */}
+      <View style={styles.assetsPreview}>
+        {DUCKCHAIN_ASSETS.slice(0, 4).map((asset, index) => (
+          <View key={asset.id} style={styles.assetQuickView}>
+            <Text style={styles.assetIcon}>{asset.icon}</Text>
+            <View style={styles.assetQuickInfo}>
+              <Text style={styles.assetSymbol}>{asset.symbol}</Text>
+              <Text style={[styles.assetChange, { color: asset.changePositive ? '#22C55E' : '#EF4444' }]}>
+                {asset.change}
+              </Text>
+            </View>
+          </View>
+        ))}
+      </View>
     </View>
   );
 }
@@ -440,47 +573,28 @@ function VirtualTradingCard() {
 }
 
 function MyPocketsSection() {
-  const pockets = [
-    {
-      id: 1,
-      name: 'Home',
-      icon: '🏠',
-      target: 250000,
-      current: 172500,
-      progress: 69,
-    },
-    {
-      id: 2,
-      name: 'Motorcycle',
-      icon: '🏍️',
-      target: 1250,
-      current: 950,
-      progress: 76,
-    },
-  ];
-
   return (
     <View style={styles.pocketsSection}>
       <View style={styles.sectionHeader}>
-        <Text style={styles.sectionTitle}>My Pockets</Text>
+        <Text style={styles.sectionTitle}>Asset Portfolios</Text>
         <TouchableOpacity>
           <Text style={styles.seeAllText}>See All</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.pocketsGrid}>
-        {pockets.map((pocket) => (
+        {DUCKCHAIN_POCKETS.map((pocket) => (
           <View key={pocket.id} style={styles.pocketCard}>
             <View style={styles.pocketHeader}>
               <Text style={styles.pocketIcon}>{pocket.icon}</Text>
               <Text style={styles.pocketName}>{pocket.name}</Text>
               <Text style={styles.lockIcon}>🔒</Text>
             </View>
-            <Text style={styles.pocketTarget}>Your Target</Text>
-            <Text style={styles.pocketAmount}>${pocket.target.toLocaleString()}</Text>
+            <Text style={styles.pocketTarget}>Target: {pocket.target.toLocaleString()} {pocket.asset}</Text>
+            <Text style={styles.pocketAmount}>{pocket.current.toLocaleString()} {pocket.asset}</Text>
             <View style={styles.progressContainer}>
               <View style={styles.progressBar}>
                 <LinearGradient
-                  colors={['#22C55E', '#16A34A']}
+                  colors={[pocket.color, pocket.color + '80']}
                   style={[styles.progressFill, { width: `${pocket.progress}%` }]}
                 />
               </View>
@@ -494,17 +608,6 @@ function MyPocketsSection() {
 }
 
 function RecentTransactionsSection() {
-  const transactions = [
-    {
-      id: 1,
-      title: 'YouTube Premium',
-      date: '22 Aug 2024 • 7:00 am',
-      amount: '-$20',
-      icon: '▶️',
-      color: '#FF0000',
-    },
-  ];
-
   return (
     <View style={styles.transactionsSection}>
       <View style={styles.sectionHeader}>
@@ -513,7 +616,7 @@ function RecentTransactionsSection() {
           <Text style={styles.seeAllText}>See All</Text>
         </TouchableOpacity>
       </View>
-      {transactions.map((transaction) => (
+      {DUCKCHAIN_TRANSACTIONS.map((transaction) => (
         <View key={transaction.id} style={styles.transactionItem}>
           <View style={styles.transactionLeft}>
             <View style={[styles.transactionIcon, { backgroundColor: transaction.color }]}>
@@ -573,11 +676,13 @@ function ChatScreen({ activeTab, setActiveTab }: { activeTab: string; setActiveT
   const [recordingTimer, setRecordingTimer] = useState(0);
   const [hasPermission, setHasPermission] = useState(false);
   
-  // Insufficient Balance Modal States
+  // Modal States
   const [showInsufficientBalance, setShowInsufficientBalance] = useState(false);
   const [showTransferSuccess, setShowTransferSuccess] = useState(false);
+  const [showArgumentRequest, setShowArgumentRequest] = useState(false);
   const [insufficientFundsData, setInsufficientFundsData] = useState<any>(null);
   const [transferSuccessData, setTransferSuccessData] = useState<any>(null);
+  const [argumentRequestData, setArgumentRequestData] = useState<any>(null);
   const scrollViewRef = useRef<ScrollView>(null);
   const recordingAnim = useRef(new Animated.Value(0)).current;
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -711,6 +816,82 @@ function ChatScreen({ activeTab, setActiveTab }: { activeTab: string; setActiveT
     setTransferSuccessData(null);
   };
 
+  const handleArgumentRequestClose = () => {
+    setShowArgumentRequest(false);
+    setArgumentRequestData(null);
+  };
+
+  const handleArgumentRequestSubmit = async (args: Record<string, string>) => {
+    try {
+      console.log('🚀 Submitting completed arguments:', args);
+      console.log('🔍 ArgumentRequestData:', JSON.stringify(argumentRequestData, null, 2));
+      
+      if (!argumentRequestData) return;
+      
+      // Extract the original message and token from the initial request
+      const { originalMessage, extraction } = argumentRequestData;
+      
+      // Get token from original message (e.g., "Transfer TON" -> "TON")
+      const tokenFromOriginalMessage = originalMessage?.match(/Transfer\s+(\w+)/i)?.[1] || 'TON';
+      
+      // Build a complete transfer message preserving the original intent
+      const recipient = args.recipient || args.address || '';
+      const amount = args.amount || '';
+      
+      // Construct the message in a format that preserves transfer intent
+      const completeMessage = `Transfer ${amount} ${tokenFromOriginalMessage} to ${recipient}`;
+      
+      console.log('📤 Original message:', originalMessage);
+      console.log('📤 Extracted token:', tokenFromOriginalMessage);
+      console.log('📤 Complete transfer message:', completeMessage);
+      console.log('📤 Extraction data:', JSON.stringify(extraction, null, 2));
+      
+      // Send the complete message to the API
+      await sendMessage(completeMessage);
+      
+      // Close the modal
+      handleArgumentRequestClose();
+      
+    } catch (error) {
+      console.error('❌ Error submitting argument request:', error);
+      Alert.alert(
+        'Transfer Error',
+        'Failed to process transfer. Please try again.',
+        [{ text: 'OK' }]
+      );
+    }
+  };
+
+  // Test function to show the ArgumentRequestModal with mock data
+  const testArgumentRequestModal = () => {
+    const mockData = {
+      interactiveData: {
+        type: 'argumentRequest' as const,
+        message: 'I need more information to complete this action. Please provide:',
+        components: [],
+        missingArgs: ['recipient', 'amount']
+      },
+      validation: {
+        isValid: false,
+        missing: ['recipient', 'amount'],
+        requiredArgs: ['recipient', 'amount']
+      },
+      extraction: {
+        actionType: 'transfer',
+        args: { recipient: 'TON', amount: null, tokenId: null }
+      },
+      classification: {
+        type: 'actions',
+        actionSubtype: 'transfer',
+        confidence: 0.95
+      },
+      originalMessage: 'Transfer TON'
+    };
+    
+    setArgumentRequestData(mockData);
+    setShowArgumentRequest(true);
+  };
+
   const extractTokenFromMessage = (message: string): string | null => {
     const tokenMatch = message.match(/\b(TON|DUCK|USDT|WTON|SEI|USDC)\b/i);
     return tokenMatch ? tokenMatch[1].toUpperCase() : null;
@@ -775,15 +956,57 @@ function ChatScreen({ activeTab, setActiveTab }: { activeTab: string; setActiveT
           }
         }
 
-        // Handle transfer argument requests
-        if (result.type === 'argumentRequest' && result.data.intent?.type === 'action' && result.data.intent?.subtype === 'transfer') {
+        // Debug: Log the full API response structure
+        console.log('🔍 Full API Response Structure:', JSON.stringify(result, null, 2));
+        
+        // Handle transfer argument requests with correct API structure
+        const intentData = result.data?.intent;
+        const interactiveData = result.data?.interactive || intentData?.interactiveData;
+        const hasInteractiveData = interactiveData?.type === 'argumentRequest';
+        const hasValidationIssues = intentData?.validation?.isValid === false;
+        const hasMissingArgs = intentData?.validation?.missing && intentData.validation.missing.length > 0;
+        
+        // Alternative detection for transfer requests
+        const isTransferArgRequest = intentData?.extraction?.actionType === 'transfer' && hasValidationIssues && hasMissingArgs;
+        
+        console.log('🔍 Argument Request Detection:', {
+          hasInteractiveData,
+          hasValidationIssues,
+          hasMissingArgs,
+          isTransferArgRequest,
+          interactiveDataType: interactiveData?.type,
+          validationIsValid: intentData?.validation?.isValid,
+          missingArgs: intentData?.validation?.missing,
+          extractionActionType: intentData?.extraction?.actionType,
+          intentDataExists: !!intentData,
+          interactiveDataExists: !!interactiveData
+        });
+        
+        if ((hasInteractiveData && hasValidationIssues && hasMissingArgs) || isTransferArgRequest) {
+          console.log('🔄 Argument request detected:', result);
           customMessage = "🚀 I can help you with that transfer! I just need a few more details to complete it.";
+          
+          // Show the ArgumentRequestModal
+          setArgumentRequestData({
+            interactiveData: interactiveData || {
+              type: 'argumentRequest',
+              message: 'I need more information to complete this action. Please provide:',
+              components: [],
+              missingArgs: intentData?.validation?.missing || []
+            },
+            validation: intentData?.validation,
+            extraction: intentData?.extraction,
+            classification: intentData?.classification,
+            originalMessage: transcribedText
+          });
+          setShowArgumentRequest(true);
         }
 
-        const voiceTransferRequestObj = result.type === 'argumentRequest' && result.data.intent?.type === 'action' && result.data.intent?.subtype === 'transfer' ? {
+        const voiceTransferRequestObj = (hasInteractiveData || isTransferArgRequest) ? {
           originalMessage: transcribedText,
-          missingArguments: result.data.intent?.missingArguments || ['recipient', 'amount'],
-          intent: result.data.intent
+          missingArguments: intentData?.validation?.missing || ['recipient', 'amount'],
+          interactiveData: interactiveData,
+          extraction: intentData?.extraction
         } : null;
 
         const aiResponse = {
@@ -959,17 +1182,59 @@ function ChatScreen({ activeTab, setActiveTab }: { activeTab: string; setActiveT
             }
           }
 
-          // Handle transfer argument requests
-          if (result.type === 'argumentRequest' && result.data.intent?.type === 'action' && result.data.intent?.subtype === 'transfer') {
+          // Debug: Log the full API response structure (sendMessage)
+          console.log('🔍 Full API Response Structure (sendMessage):', JSON.stringify(result, null, 2));
+          
+          // Handle transfer argument requests with correct API structure
+          const intentData = result.data?.intent;
+          const interactiveData = result.data?.interactive || intentData?.interactiveData;
+          const hasInteractiveData = interactiveData?.type === 'argumentRequest';
+          const hasValidationIssues = intentData?.validation?.isValid === false;
+          const hasMissingArgs = intentData?.validation?.missing && intentData.validation.missing.length > 0;
+          
+          // Alternative detection for transfer requests
+          const isTransferArgRequest = intentData?.extraction?.actionType === 'transfer' && hasValidationIssues && hasMissingArgs;
+          
+          console.log('🔍 Argument Request Detection (sendMessage):', {
+            hasInteractiveData,
+            hasValidationIssues,
+            hasMissingArgs,
+            isTransferArgRequest,
+            interactiveDataType: interactiveData?.type,
+            validationIsValid: intentData?.validation?.isValid,
+            missingArgs: intentData?.validation?.missing,
+            extractionActionType: intentData?.extraction?.actionType,
+            intentDataExists: !!intentData,
+            interactiveDataExists: !!interactiveData
+          });
+          
+          if ((hasInteractiveData && hasValidationIssues && hasMissingArgs) || isTransferArgRequest) {
+            console.log('🔄 Argument request detected (sendMessage):', result);
             customMessage = "🚀 I can help you with that transfer! I just need a few more details to complete it.";
+            
+            // Show the ArgumentRequestModal
+            setArgumentRequestData({
+              interactiveData: interactiveData || {
+                type: 'argumentRequest',
+                message: 'I need more information to complete this action. Please provide:',
+                components: [],
+                missingArgs: intentData?.validation?.missing || []
+              },
+              validation: intentData?.validation,
+              extraction: intentData?.extraction,
+              classification: intentData?.classification,
+              originalMessage: currentInput
+            });
+            setShowArgumentRequest(true);
           }
 
           console.log('API Result:', JSON.stringify(result, null, 2));
           
-          const transferRequestObj = result.type === 'argumentRequest' && result.data.intent?.type === 'action' && result.data.intent?.subtype === 'transfer' ? {
+          const transferRequestObj = (hasInteractiveData || isTransferArgRequest) ? {
             originalMessage: currentInput,
-            missingArguments: result.data.intent?.missingArguments || ['recipient', 'amount'],
-            intent: result.data.intent
+            missingArguments: intentData?.validation?.missing || ['recipient', 'amount'],
+            interactiveData: interactiveData,
+            extraction: intentData?.extraction
           } : null;
 
           console.log('Created transferRequestObj:', JSON.stringify(transferRequestObj, null, 2));
@@ -1241,6 +1506,18 @@ function ChatScreen({ activeTab, setActiveTab }: { activeTab: string; setActiveT
           transferResult={transferSuccessData}
           onClose={handleSuccessClose}
           onViewTransaction={handleViewTransaction}
+        />
+      )}
+
+      {/* Argument Request Modal */}
+      {argumentRequestData && (
+        <ArgumentRequestModal
+          visible={showArgumentRequest}
+          interactiveData={argumentRequestData.interactiveData}
+          validation={argumentRequestData.validation}
+          extractedData={argumentRequestData.extraction}
+          onClose={handleArgumentRequestClose}
+          onSubmit={handleArgumentRequestSubmit}
         />
       )}
     </KeyboardAvoidingView>
@@ -4353,6 +4630,36 @@ const styles = StyleSheet.create({
     color: 'rgba(255,255,255,0.8)',
     fontSize: 16,
     fontWeight: '500',
+  },
+  // DuckChain Assets Overview Styles
+  assetsPreview: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 16,
+    paddingTop: 16,
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255,255,255,0.1)',
+  },
+  assetQuickView: {
+    alignItems: 'center',
+    flex: 1,
+  },
+  assetIcon: {
+    fontSize: 20,
+    marginBottom: 4,
+  },
+  assetQuickInfo: {
+    alignItems: 'center',
+  },
+  assetSymbol: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: '600',
+    marginBottom: 2,
+  },
+  assetChange: {
+    fontSize: 10,
+    fontWeight: '600',
   },
 });
 

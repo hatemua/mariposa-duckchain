@@ -3,7 +3,7 @@
 
 const API_CONFIG = {
   // Update this IP address when your backend server IP changes
-  BASE_IP: '192.168.1.130',
+  BASE_IP: '192.168.1.17',
   PORT: '5001',
   
   // Computed base URL
